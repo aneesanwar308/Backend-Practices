@@ -4,7 +4,9 @@ const dateModel = require("../user/date")
 
 router.post("/date", async (req, res) => {
     const newData = new dateModel({
-        date: req.body.date
+        username: req.body.username,
+        role: req.body.role,
+        date: new Date().toISOString()
     })
     const savedDate = await newData.save();
     res.status(200).json({ savedDate })
